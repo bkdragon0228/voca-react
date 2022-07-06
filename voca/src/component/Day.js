@@ -11,8 +11,15 @@ const Day = () => {
                 <tbody>
                     {wordList.map((ele) => (
                         <tr key={ele.id}>
+                            <td>
+                                <input type="checkbox"></input>
+                            </td>
                             <td>{ele.eng}</td>
                             <td>{ele.kor}</td>
+                            <td>
+                                <button>뜻 보기</button>
+                                <button class="btn_del">삭제</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
