@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const CreateWord = () => {
     const [days, setDays] = useState([]);
+    const navigate = useNavigate();
 
     const fetchDay = async () => {
         const res = await fetch('http://localhost:3001/days');
@@ -30,6 +31,7 @@ const CreateWord = () => {
         }).then((res) => {
             if (res.ok) {
                 alert('생성이 완료 되었습니다.');
+                navigate(`/day/${dayRef.current.value}`);
             }
         });
     };

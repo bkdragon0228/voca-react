@@ -87,6 +87,13 @@
       "kor": "창문",
       "isDone": false,
       "id": 12
+    },
+    {
+      "day": "1",
+      "eng": "hi",
+      "kor": "안녕",
+      "isDone": false,
+      "id": 13
     }
   ]
 }
