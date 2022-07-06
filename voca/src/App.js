@@ -2,14 +2,17 @@ import './App.css';
 import Day from './component/Day';
 import DayList from './component/DayList';
 import Header from './component/Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
     return (
-        <div className="App">
+        <Router>
             <Header />
-            <DayList />
-            <Day />
-        </div>
+            <Routes>
+                <Route path="/" element={<DayList />} />
+                <Route path="/day/:id" element={<Day />} />
+            </Routes>
+        </Router>
     );
 }
 

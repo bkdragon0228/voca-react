@@ -4,10 +4,11 @@ const Day = () => {
     const wordList = dummy.words.filter((e) => e.day === day);
     return (
         <div>
+            <h2>Day {day}</h2>
             <table>
                 <tbody>
                     {wordList.map((ele) => (
-                        <tr>
+                        <tr key={ele.id}>
                             <td>{ele.eng}</td>
                             <td>{ele.kor}</td>
                         </tr>
