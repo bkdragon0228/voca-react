@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-const Word = ({ word }) => {
+const Word = ({ word: W }) => {
+    const [word, setWord] = useState(W);
     const [isShow, setIsShow] = useState(false);
     const [isDone, setIsDone] = useState(word.isDone);
 
@@ -25,6 +26,22 @@ const Word = ({ word }) => {
             }
         });
     };
+    const del = () => {
+        if (window.confirm('삭제 하시겠습니까?')) {
+            fetch(`http://localhost:3001/words/${word.id}`, {
+                method: 'DELETE',
+            }).then((res) => {
+                if (res.ok) {
+                    setWord({ id: 0 });
+                }
+            });
+        }
+    };
+
+    if (word.id === 0) {
+        return null;
+    }
+
     return (
         <tr className={isDone ? 'off' : ''}>
             <td>
@@ -40,7 +57,9 @@ const Word = ({ word }) => {
                 <button onClick={handleClick}>
                     뜻 {isShow ? '숨기기' : '보기'}
                 </button>
-                <button className="btn_del">삭제</button>
+                <button className="btn_del" onClick={del}>
+                    삭제
+                </button>
             </td>
         </tr>
     );
