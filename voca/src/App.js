@@ -10,7 +10,7 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<DayList />} />
-                <Route path="/day/:id" element={<Day />} />
+                <Route path="/day" element={<Day />} />
             </Routes>
         </Router>
     );

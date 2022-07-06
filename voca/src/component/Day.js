@@ -1,4 +1,5 @@
 import dummy from '../db/db.json';
+
 const Day = () => {
     const day = 1;
     const wordList = dummy.words.filter((e) => e.day === day);
