@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import dummy from '../db/db.json';
+import Word from './Word';
 
 const Day = () => {
     const { day } = useParams();
@@ -10,17 +11,7 @@ const Day = () => {
             <table>
                 <tbody>
                     {wordList.map((ele) => (
-                        <tr key={ele.id}>
-                            <td>
-                                <input type="checkbox"></input>
-                            </td>
-                            <td>{ele.eng}</td>
-                            <td>{ele.kor}</td>
-                            <td>
-                                <button>뜻 보기</button>
-                                <button class="btn_del">삭제</button>
-                            </td>
-                        </tr>
+                        <Word key={ele.id} word={ele} />
                     ))}
                 </tbody>
             </table>
