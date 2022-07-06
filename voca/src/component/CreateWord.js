@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 const CreateWord = () => {
     const [days, setDays] = useState([]);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
     const fetchDay = async () => {
         const res = await fetch('http://localhost:3001/days');
@@ -11,7 +12,11 @@ const CreateWord = () => {
     };
 
     useEffect(() => {
-        fetchDay();
+        if (!isLoading) {
+            setIsLoading(true);
+            fetchDay();
+            setIsLoading(false);
+        }
     }, []);
 
     const handleSubmit = (e) => {
@@ -68,7 +73,9 @@ const CreateWord = () => {
                 </select>
             </div>
             <div>
-                <button>저장</button>
+                <button style={{ opacity: isLoading ? 0.3 : 1 }}>
+                    {isLoading ? 'Saving...' : '저장'}
+                </button>
             </div>
         </form>
     );
