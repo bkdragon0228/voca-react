@@ -15,6 +15,23 @@ const CreateWord = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        fetch(`http://localhost:3001/words/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                day: dayRef.current.value,
+                eng: engRef.current.value,
+                kor: korRef.current.value,
+                isDone: false,
+            }),
+        }).then((res) => {
+            if (res.ok) {
+                alert('생성이 완료 되었습니다.');
+            }
+        });
     };
 
     const engRef = useRef(null);
