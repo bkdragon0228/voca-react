@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 // import dummy from '../db/db.json';
-import Word from './Word';
+import Word from './Word.tsx';
 
 const Day = () => {
     const { day } = useParams();
