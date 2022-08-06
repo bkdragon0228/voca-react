@@ -18,7 +18,7 @@ const CreateDay = () => {
             body: JSON.stringify({
                 day: days.length + 1,
             }),
-        }).then((res) => {
+        }).then((res, err) => {
             if (res.ok) {
                 alert('생성이 완료 되었습니다.');
                 navigate('/');

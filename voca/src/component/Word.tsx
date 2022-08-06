@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import React from 'react'
+import React from 'react';
 
 interface Iprops {
-    word : Iword;
+    word: Iword;
 }
 
-interface Iword {
-      id: number;
-      day: number;
-      eng: string;
-      kor: string;
-      isDone: boolean;
+export interface Iword {
+    id: number;
+    day: number;
+    eng: string;
+    kor: string;
+    isDone: boolean;
 }
 
 const Word = ({ word: W }: Iprops) => {
@@ -20,7 +20,7 @@ const Word = ({ word: W }: Iprops) => {
 
     const handleClick = () => {
         // setIsShow((prev) => (prev ? false : true));
-        setIsShow((prev) => !prev);
+        setIsShow(prev => !prev);
     };
 
     const toggleDone = () => {
@@ -33,7 +33,7 @@ const Word = ({ word: W }: Iprops) => {
                 ...word,
                 isDone: !isDone,
             }),
-        }).then((res) => {
+        }).then(res => {
             if (res.ok) {
                 setIsDone(!isDone);
             }
@@ -43,7 +43,7 @@ const Word = ({ word: W }: Iprops) => {
         if (window.confirm('삭제 하시겠습니까?')) {
             fetch(`http://localhost:3001/words/${word.id}`, {
                 method: 'DELETE',
-            }).then((res) => {
+            }).then(res => {
                 if (res.ok) {
                     setWord({ ...word, id: 0 });
                 }

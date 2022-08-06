@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 // import dummy from '../db/db.json';
-import Word from './Word.tsx';
+import Word, { Iword } from './Word';
 
 const Day = () => {
-    const { day } = useParams();
+    const { day } = useParams<{ day: string }>();
     // const wordList = dummy.words.filter((e) => e.day === Number(day));
 
     const [words, setWords] = useState([]);
@@ -24,7 +25,7 @@ const Day = () => {
             <h2>Day {day}</h2>
             <table>
                 <tbody>
-                    {words.map((ele) => (
+                    {words.map((ele: Iword) => (
                         <Word key={ele.id} word={ele} />
                     ))}
                 </tbody>

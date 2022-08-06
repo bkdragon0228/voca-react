@@ -1,5 +1,5 @@
 import './App.css';
-import Day from './component/Day';
+import Day from './component/Day.tsx';
 import DayList from './component/DayList';
 import Header from './component/Header';
 import Empty from './component/Empty';

@@ -1,6 +1,12 @@
 // import dummy from '../db/db.json';
 import { Link } from 'react-router-dom';
+import React from 'react';
 import { useEffect, useState } from 'react';
+
+export interface IDay {
+    id : number;
+    day : number
+}
 const DayList = () => {
     const [days, setDays] = useState([]);
 
@@ -16,7 +22,7 @@ const DayList = () => {
 
     return (
         <ul className="list_day">
-            {days.map((ele) => (
+            {days.map((ele: IDay) => (
                 <li key={ele.id}>
                     <Link to={`/day/${ele.day}`}>Day {ele.day}</Link>
                 </li>
